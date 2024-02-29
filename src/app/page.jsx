@@ -1,4 +1,4 @@
-import Button from "@/components/ui/button";
+import Form from "@/components/ui/Form";
 
 export default function Home() {
   return (
@@ -7,6 +7,9 @@ export default function Home() {
         Calcular RM
       </h1>
 
+      <div className="bg-card-dark py-10 px-5 rounded">
+        <Form />
+      </div>
     </main>
   );
 }

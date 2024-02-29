@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-export default function Button({ weight, reps, bodWeight }) {
+export default function Button({ weight, reps, bodWeight, exercise }) {
   const [result, setResult] = useState(null);
 
   //funciones para calcular las rm
@@ -37,15 +37,50 @@ export default function Button({ weight, reps, bodWeight }) {
   }
 
   //funcion para handlear el submit de un form
-  function handleSubmit(weight, reps) {
-    setResult(weight * reps);
+
+  function exerciseToFormula(){
+    var res = ""
+    switch (exercise) {
+      case "Squat":
+      case "Bench":
+      case "Dead Lift":
+        res = "SBD"
+        break;
+      case "Pull Ups":
+      case "Dips":
+        res = "FD"
+        break;
+      case "Muscle Up":
+        res = "MU"
+        break;
+      default:
+        res = -1;
+    }
+    return res
+  }
+  function handleSubmit() {
+    var res = 0;
+    switch (exerciseToFormula()) {
+      case "SBD":
+        res = rmSBD(weight, reps);
+      case "FD":
+        res = rmFondosDominadas(bodWeight, weight, reps);
+        break;
+      case "MU":
+        res = rmMuscleUp(bodWeight, weight, reps);
+        break;
+      default:
+        res = -1;
+    }
+
+    setResult(res);
   }
 
   return (
     <div>
       <button
-        className="bg-card-dark hover:bg-popover text-white  hover:text-black font-bold py-2 px-4 text-3xl rounded"
-        onClick={() => handleSubmit(weight, reps)}
+        className="bg-card-foreground-dark hover:bg-popover-foreground-dark text-black font-bold py-2 px-4 text-3xl rounded"
+        onClick={() => handleSubmit()}
       >
         Calcular
       </button>
@@ -54,7 +89,7 @@ export default function Button({ weight, reps, bodWeight }) {
         //sirver para ver si hay resultado, si lo hay se muestran el resultado y la tabla
         result !== null && (
           <p className="my-10">
-            El resultado de {weight} * {reps} es: {result}
+            Your RM in {exercise} is: {result}
           </p>
         )
       }
