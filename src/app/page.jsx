@@ -6,8 +6,6 @@ export default function Home() {
       <h1 className="text-accent top-3 my-4 text-6xl fonnt-bold">
         Calcular RM
       </h1>
-      
-      <Button weight={1} reps={2}/>
 
     </main>
   );
