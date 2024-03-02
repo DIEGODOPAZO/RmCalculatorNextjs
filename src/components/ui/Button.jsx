@@ -17,16 +17,7 @@ export default function Button({ weight, reps, bodWeight, exercise }) {
 
   function rmMuscleUp(bw, weight, reps) {
     // Calcula el resultado según la fórmula proporcionada
-    let result =
-      0.5 *
-      (-(
-        (Math.pow(weight, 2) -
-          294 * weight -
-          24 * bw * (Math.pow(reps, 1.5) - 1)) **
-        0.5
-      ) +
-        weight +
-        147);
+    let result =   0.5 * ( - Math.pow(( Math.pow(weight, 2) - 294 * weight - 24 * bw * Math.pow((Math.pow(reps, 1.5) - 1), 0.5) + 21600 ), 0.5) + weight + 147 )
 
     // Redondea el resultado a dos decimales
     result = Math.round(result * 100) / 100;

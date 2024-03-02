@@ -9,13 +9,10 @@ export default function Form() {
   const [bodWeight, setBodWeight] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState("Squat")
 
-  const [result, setResult] = useState(null);
 
   // Función para manejar el envío del formulario
   function handleSubmit(event) {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
-
-    console.log(selectedExercise)
   }
 
   function handleSelectChange(){
