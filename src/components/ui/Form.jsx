@@ -7,7 +7,7 @@ export default function Form() {
   const [weight, setWeight] = useState(0);
   const [reps, setReps] = useState(0);
   const [bodWeight, setBodWeight] = useState(0);
-  const [selectedExercise, setSelectedExercise] = useState("squat")
+  const [selectedExercise, setSelectedExercise] = useState("Squat")
 
   const [result, setResult] = useState(null);
 

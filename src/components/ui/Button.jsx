@@ -7,56 +7,70 @@ export default function Button({ weight, reps, bodWeight, exercise }) {
 
   //funciones para calcular las rm
   function rmSBD(weigth, reps) {
-    return (
+    let result =
       (weigth * (1 + 0.0333 * reps + 36 / (37 - reps) + Math.pow(reps, 0.1))) /
-      3
-    );
+      3;
+    result = Math.round(result * 100) / 100;
+    return result;
   }
 
-  function rmMuscleUp(bw, weigth, reps) {
-    return (
+  function rmMuscleUp(bw, weight, reps) {
+    // Calcula el resultado según la fórmula proporcionada
+    let result =
       0.5 *
       (-(
-        Math.pow(weigth, 2) -
-        294 * weigth -
-        24 * bw * (Math.pow(reps, 1.5) - 1).pow(0.5) +
-        21600
-      ).pow(0.5) +
-        weigth +
-        147)
-    );
+        (Math.pow(weight, 2) -
+          294 * weight -
+          24 * bw * (Math.pow(reps, 1.5) - 1)) **
+        0.5
+      ) +
+        weight +
+        147);
+
+    // Redondea el resultado a dos decimales
+    result = Math.round(result * 100) / 100;
+
+    // Devuelve el resultado
+    return result;
   }
 
   function rmFondosDominadas(bw, weigth, reps) {
-    return (
+    let result =
       ((weigth + bw) *
         (1 + 0.0333 * reps + 36 / (37 - reps) + Math.pow(reps, 0.1))) /
         3 -
-      bw
-    );
+      bw;
+    result = Math.round(result * 100) / 100;
+    return result;
   }
 
   //funcion para handlear el submit de un form
 
-  function exerciseToFormula(){
-    var res = ""
+  function exerciseToFormula() {
+    var res = "";
     switch (exercise) {
       case "Squat":
+        res = "SBD";
+        break;
       case "Bench":
+        res = "SBD";
+        break;
       case "Dead Lift":
-        res = "SBD"
+        res = "SBD";
         break;
       case "Pull Ups":
+        res = "FD";
+        break;
       case "Dips":
-        res = "FD"
+        res = "FD";
         break;
       case "Muscle Up":
-        res = "MU"
+        res = "MU";
         break;
       default:
         res = -1;
     }
-    return res
+    return res;
   }
   function handleSubmit() {
     var res = 0;
