@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 export default function Button({ weight, reps, bodWeight, exercise }) {
   const [result, setResult] = useState(null);
+  const [exerciseLocal, setExercise] = useState("");
 
   //funciones para calcular las rm
   function rmSBD(weigth, reps) {
@@ -74,6 +75,7 @@ export default function Button({ weight, reps, bodWeight, exercise }) {
   }
   function handleSubmit() {
     var res = 0;
+    setExercise(exercise)
     switch (exerciseToFormula()) {
       case "SBD":
         res = rmSBD(weight, reps);
@@ -91,7 +93,7 @@ export default function Button({ weight, reps, bodWeight, exercise }) {
   }
 
   return (
-    <div>
+    <div className="flex flex-col">
       <button
         className="bg-card-foreground-dark hover:bg-popover-foreground-dark text-black font-bold py-2 px-4 text-3xl rounded"
         onClick={() => handleSubmit()}
@@ -102,8 +104,8 @@ export default function Button({ weight, reps, bodWeight, exercise }) {
       {
         //sirver para ver si hay resultado, si lo hay se muestran el resultado y la tabla
         result !== null && (
-          <p className="my-10">
-            Your RM in {exercise} is: {result}
+          <p className="my-10 text-3xl flex flex-col">
+            Your RM in {exerciseLocal} is: <p className="text-6xl"> {result} </p>
           </p>
         )
       }

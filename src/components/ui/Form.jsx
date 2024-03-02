@@ -23,16 +23,15 @@ export default function Form() {
   }
 
   return (
-    <main>
-      <form onSubmit={handleSubmit} className="text-accent flex flex-col items-center">
+    <main className="full">
+      <form onSubmit={handleSubmit} className="text-accent flex flex-col items-center w-full">
 
-      <div className="flex flex-col">
+      <div className="flex flex-col w-11/12">
           <select
             id="dropdown"
             value={selectedExercise}
-            className="text-black w-64 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+            className="text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
             onChange={handleSelectChange} // Maneja el cambio en el menú desplegable
-            //hay varios con el mismo valor porque a la hora de hacer las cuentas es al misma formual
           >
             <option value="Squat">Squat</option>  
             <option value="Bench">Bench</option>
@@ -43,11 +42,11 @@ export default function Form() {
           </select>
         </div>
         <br />
-        <div className="flex flex-col">
+        <div className="flex flex-col w-11/12">
           <label htmlFor="weight">Weight:</label>
           <input
             id="weight"
-            className="text-black w-64 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             type="number"
             inputMode="numeric"
             min="0"
@@ -56,11 +55,11 @@ export default function Form() {
           />
         </div>
         <br />
-        <div className="flex flex-col">
+        <div className="flex flex-col w-11/12">
           <label htmlFor="reps">Reps:</label>
           <input
             id="reps"
-            className="text-black w-64 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             type="number"
             min="0"
             value={reps}
@@ -68,11 +67,11 @@ export default function Form() {
           />
         </div>
         <br />
-        <div className="flex flex-col">
+        <div className="flex flex-col w-11/12">
           <label htmlFor="bodWeight">Body Weight:</label>
           <input
             id="bodWeight"
-            className="text-black w-64 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             type="number"
             min="0"
             value={bodWeight}
