@@ -70,6 +70,7 @@ export default function Button({ weight, reps, bodWeight, exercise }) {
     switch (exerciseToFormula()) {
       case "SBD":
         res = rmSBD(weight, reps);
+        break;
       case "FD":
         res = rmFondosDominadas(bodWeight, weight, reps);
         break;
@@ -95,8 +96,8 @@ export default function Button({ weight, reps, bodWeight, exercise }) {
       {
         //sirver para ver si hay resultado, si lo hay se muestran el resultado y la tabla
         result !== null && (
-          <p className="my-10 text-3xl flex flex-col">
-            Your RM in {exerciseLocal} is: <p className="text-6xl"> {result} </p>
+          <p className="my-10 text-3xl flex flex-col justify-center items-center">
+            Your RM in {exerciseLocal} is: <p className="text-6xl font-bold"> {result} </p>
           </p>
         )
       }

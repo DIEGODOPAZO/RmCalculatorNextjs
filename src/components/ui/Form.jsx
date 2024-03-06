@@ -64,7 +64,8 @@ export default function Form() {
           />
         </div>
         <br />
-        <div className="flex flex-col w-11/12">
+        {selectedExercise == "Dips" || selectedExercise == "Pull Ups" || selectedExercise == "Muscle Up" ?
+          (<div className="flex flex-col w-11/12">
           <label htmlFor="bodWeight">Body Weight:</label>
           <input
             id="bodWeight"
@@ -74,7 +75,8 @@ export default function Form() {
             value={bodWeight}
             onChange={(e) => setBodWeight(parseFloat(e.target.value))}
           />
-        </div>
+        </div>) : <></>
+        }
         <br/>
         <br/>
         <Button type="submit" weight={weight} reps={reps} bodWeight={bodWeight} exercise={selectedExercise}/>
