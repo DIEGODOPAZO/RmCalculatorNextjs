@@ -35,3 +35,5 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 # RmCalculatorNextjs
+
+This project has been undertaken with the aim of learning how to utilize Next.js. The selection of this technology is based on its increasing popularity and its ability to streamline the process of building robust and efficient web applications. Throughout the development, we have explored the key features.
